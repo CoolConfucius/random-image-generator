@@ -45,7 +45,7 @@ todoSchema.statics.add = function (todo, cb) {
     (b64image) => {
      console.log('b64image \n', b64image) 
      imagestring = b64image;
-     imagesubstring = imagestring.length > 50 ? imagestring.substring(0, 50) : imagestring;
+     imagesubstring = imagestring.length > 50 ? imagestring.substring(imagestring.length - 50, imagestring.length - 1) : imagestring;
       Todo.create({
         imagestring: imagestring, 
         imagesubstring: imagesubstring 

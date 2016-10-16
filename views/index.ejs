@@ -26,8 +26,9 @@
       <table>
         <thead>
           <tr>            
+              <th>#</th>
               <th ng-click="sort('date')">Created At</th>
-              <th>Image String?</th>
+              <th>Image String</th>
               <th>Delete</th>
           </tr>
         </thead>
@@ -35,9 +36,9 @@
           <tr ng-repeat='item in todos | orderBy:sorttext track by $index' ng-class='{lightsteelblue: $even}'>
             
             <td>{{$index}}</td>
-            <td>{{item.imagestring}}</td>
             <td ng-if="item.long">{{item.long}}</td>
             <td ng-if="!item.long">{{item.date}}</td>                          
+            <td>{{item.imagesubstring}}</td>
             <td ng-click="remove(item)">
               <div class="btn btn-danger btn-sm">
                 <span class="glyphicon glyphicon-trash"></span>
