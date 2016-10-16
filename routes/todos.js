@@ -23,8 +23,12 @@ router.get('/gri', function(req, res, next) {
 
 router.post('/gri', function(req, res, next) {
   console.log("post gri", req.body);
-  Todo.gri(req.body, function(err, todo){
+  Todo.add(req.body, function(err, todo){
+    console.log("todo", todo);
     res.send(err || todo);
+    // todo.save(function(err, savedTodo){
+      // res.send(err || savedTodo);
+    // })
   });
 });
 
