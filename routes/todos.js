@@ -11,6 +11,23 @@ router.get('/', function(req, res, next) {
   });
 });
 
+// maybe a post request instead? 
+router.get('/gri', function(req, res, next) {
+  console.log("gri");
+  Todo.gri({}, function(err, todos){
+    if(err) return res.status(400).send(err); 
+    console.log("Found them,", todos);
+    res.send(todos); 
+  });
+});
+
+router.post('/gri', function(req, res, next) {
+  console.log("post gri", req.body);
+  Todo.gri(req.body, function(err, todo){
+    res.send(err || todo);
+  });
+});
+
 router.post('/', function(req, res, next) {
   console.log("post todo", req.body);
   Todo.add(req.body, function(err, todo){

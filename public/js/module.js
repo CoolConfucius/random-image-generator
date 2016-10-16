@@ -31,6 +31,22 @@ app.service('Todo', function($http) {
     return $http.delete(`/todos/${todo}`)
   };
 
+  // this.generateImage = function() {
+  //   return $http.get('/todos/gri').then(res => {
+  //     this.data = res.data;
+  //     console.log(this.data, "this data");
+  //     cb(); 
+  //   });
+  // };
+
+  this.generateImage = function() {
+    return $http.post('/todos/gri', {}).then(res => {
+      this.data = res.data;
+      console.log(this.data, "this data");
+      // cb(); 
+    });
+  };
+
 });
 
 app.run(function(Todo, $rootScope){
@@ -83,6 +99,14 @@ app.controller('homeCtrl', function($rootScope, $scope, $state, Todo){
     }  
     Todo.add(newObj); 
   };
+
+  $scope.generateImage = function(){
+    console.log("generateImage");
+    Todo.generateImage(); 
+  }
+
+
+
 
   $scope.toggle = function(todo){
     var realIndex = $scope.todos.indexOf(todo); 
