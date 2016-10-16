@@ -1,12 +1,11 @@
-// var request = require('request');
+var request = require('request');
 
-
-// /*
-//  * Usage: 
-//  *   var getImage = require('./ngri.js');
-//  *   getImage().then( (b64image) => console.log(b64image) )
-//  *             .catch( (err) => console.err(err) );
-//  */
+/*
+ * Usage: 
+ *   var getImage = require('./ngri.js');
+ *   getImage().then( (b64image) => console.log(b64image) )
+ *             .catch( (err) => console.err(err) );
+ */
 // module.exports = () =>
 //   new Promise( (resolve, reject) =>
 //     // request.get( 'http://loremflickr.com/640/480/cat', 
@@ -16,16 +15,6 @@
 //                                 : resolve( Buffer.from(b, 'binary')
 //                                                  .toString('base64') )));
 
-
-var request = require('request');
-
-
-/*
- * Usage: 
- *   var getImage = require('./ngri.js');
- *   getImage().then( (b64image) => console.log(b64image) )
- *             .catch( (err) => console.err(err) );
- */
 module.exports = () =>
   new Promise( (resolve, reject) =>
     // request.get( 'http://loremflickr.com/640/480/cat', 
