@@ -26,11 +26,8 @@
       <table>
         <thead>
           <tr>            
-              <th ng-click="sort('date')">#</th>
-              <th ng-click="sort('description')">Description</th>
               <th ng-click="sort('date')">Created At</th>
-              <th ng-click="sort('due')">Due Date</th>
-              <th ng-click="sort('iscomplete')">Complete?</th>
+              <th>Image String?</th>
               <th>Delete</th>
           </tr>
         </thead>
@@ -38,15 +35,9 @@
           <tr ng-repeat='item in todos | orderBy:sorttext track by $index' ng-class='{lightsteelblue: $even}'>
             
             <td>{{$index}}</td>
-            <td>{{item.description}}</td>
+            <td>{{item.imagestring}}</td>
             <td ng-if="item.long">{{item.long}}</td>
-            <td ng-if="!item.long">{{item.date}}</td>
-            <td ng-if="item.duelong">{{item.duelong}}</td>
-            <td ng-if="!item.duelong">{{item.due}}</td>
-            <td ng-click="toggle(item)">
-              <div class="btn btn-primary btn-sm">                
-                {{item.iscomplete}}</td>
-              </div>
+            <td ng-if="!item.long">{{item.date}}</td>                          
             <td ng-click="remove(item)">
               <div class="btn btn-danger btn-sm">
                 <span class="glyphicon glyphicon-trash"></span>
