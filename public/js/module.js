@@ -75,44 +75,12 @@ app.controller('homeCtrl', function($rootScope, $scope, $state, Todo){
     }
   };
 
-  $scope.addTodo = function(todo){
-    console.log("addTdod", todo);
-    var newObj; 
-    if (todo) {
-      var description = todo.description ? todo.description : 'default description';
-      newObj = {
-        description: description, 
-        date: Date.now(), 
-        iscomplete: false, 
-        due: todo.due
-      }
-      
-      $scope.todos.push(newObj); 
-      $scope.todo.description = " "; 
-      
-    } else {
-      newObj = {
-        description: "default description", 
-        date: Date.now(), 
-        iscomplete: false
-      }
-    }  
-    Todo.add(newObj); 
-  };
 
   $scope.generateImage = function(){
     console.log("generateImage");
     Todo.generateImage(); 
   }
 
-
-
-
-  $scope.toggle = function(todo){
-    var realIndex = $scope.todos.indexOf(todo); 
-    $scope.todos[realIndex].iscomplete = !$scope.todos[realIndex].iscomplete;
-    Todo.toggle(todo._id.toString()); 
-  }
 
   $scope.remove = function(todo){
     var realIndex = $scope.todos.indexOf(todo); 
